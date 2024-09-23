@@ -8,7 +8,7 @@
 <body>
     <h1>Listado de clientes</h1>
 
-    <a href="/cliente/create">Ingresar un nuevo cliente </a>
+    <a href="/cliente">Regresar al listado </a>
 
     <table border="1">
         <thead>
@@ -17,20 +17,21 @@
                 <th>Correo</th>
                 <th>Mensaje</th>
                 <th>Acciones</th>
-                <th>Acciones</th>
             </tr>
         </thead>
-        <tbody>
-            @foreach($clientes as $cliente)
+        <tbody>            
             <tr>
                 <td>{{$cliente->nombre}}</td>
                 <td>{{$cliente->correo}}</td>
                 <td>{{$cliente->contraseña}}</td>
-                <td><a href="{{ route('cliente.show', $cliente) }}">Mostrar detalles</a></td>
                 <td><a href="{{ route('cliente.edit', $cliente) }}">Editar</a></td>
             </tr>
-            @endforeach
         </tbody>
     </table>
+    <form action="{{ route('cliente.destroy', $cliente) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <input type="submit" value="Eliminar el cliente">
+    </form>
 </body>
-</html>
+</html> 

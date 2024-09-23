@@ -12,8 +12,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $datos = Cliente::all();
-        return view ('listado-clientes', compact('datos'));
+        $clientes = Cliente::all();
+        return view ('listado-clientes', compact('clientes'));
     }
 
     /**
@@ -38,7 +38,7 @@ class ClienteController extends Controller
         $cliente -> correo = $request -> correo;
         $cliente -> contraseña = $request -> contraseña;
         $cliente ->save();
-        return redirect('/clientes');             
+        return redirect('/cliente');             
     }
 
     /**
@@ -46,7 +46,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        //
+        return view ('mostrar-cliente', compact('cliente'));
     }
 
     /**
@@ -54,7 +54,7 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        //
+        return view('cliente', compact('cliente'));
     }
 
     /**
@@ -62,7 +62,11 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        //
+        $cliente -> nombre = $request -> nombre;
+        $cliente -> correo = $request -> correo;
+        $cliente -> contraseña = $request -> contraseña;
+        $cliente ->save();
+        return redirect ('/cliente');
     }
 
     /**
@@ -70,6 +74,7 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //
+        $cliente -> delete();
+        return redirect ('/cliente');
     }
 }

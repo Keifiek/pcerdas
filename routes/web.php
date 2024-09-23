@@ -20,3 +20,4 @@ Route::get('/', function () {
 Route::get('/clientes', [ClienteController::class, 'index']);
 Route::get('/registro-clientes', [ClienteController::class, 'create']);
 Route::post('/guardar-clientes', [ClienteController::class, 'store']);
+Route::resource('cliente', ClienteController::class);
