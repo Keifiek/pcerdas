@@ -24,7 +24,6 @@
         <br>
         <label for="">Direccion:<br><input type="text" name="direccion" value="{{ isset($proveedor) ? $proveedor->direccion : old('direccion') }}"></input></label><br>
         <input type="submit" value="Enviar">
-
     </form>
 </body>
 </html>
