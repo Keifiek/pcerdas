@@ -22,14 +22,23 @@ Route::get('/', function () {
 Route::get('/provedors', [ProveedorController::class, 'index']);
 Route::get('/registro-proveedors', [ProveedorController::class, 'create']);
 Route::post('/guardar-proveedors', [ProveedorController::class, 'store']);
-Route::resource('proveedor', ProveedorController::class);
+Route::resource('proveedor', ProveedorController::class)->middleware('auth');;
 
 Route::get('/clientes', [ClienteController::class, 'index']);
 Route::get('/registro-clientes', [ClienteController::class, 'create']);
 Route::post('/guardar-clientes', [ClienteController::class, 'store']);
-Route::resource('cliente', ClienteController::class);
+Route::resource('cliente', ClienteController::class)->middleware('auth');;
 
 Route::get('/productos', [ProductoController::class, 'index']);
 Route::get('/registro-productos', [ProductoController::class, 'create']);
 Route::post('/guardar-productos', [ProductoController::class, 'store']);
-Route::resource('producto', ProductoController::class);
+Route::resource('producto', ProductoController::class)->middleware('auth');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
