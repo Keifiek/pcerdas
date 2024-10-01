@@ -15,7 +15,7 @@
             <tr>
                 <th>Nombre</th>
                 <th>Correo</th>
-                <th>Mensaje</th>
+                <th>Contraseña</th>
                 <th>Acciones</th>
             </tr>
         </thead>
