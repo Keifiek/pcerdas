@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProveedorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/provedors', [ProveedorController::class, 'index']);
+Route::get('/registro-proveedors', [ProveedorController::class, 'create']);
+Route::post('/guardar-proveedors', [ProveedorController::class, 'store']);
+Route::resource('proveedor', ProveedorController::class);
