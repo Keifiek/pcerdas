@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ProveedorController;
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProductoController;
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,11 @@ use App\Http\Controllers\ProductoController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/provedors', [ProveedorController::class, 'index']);
+Route::get('/registro-proveedors', [ProveedorController::class, 'create']);
+Route::post('/guardar-proveedors', [ProveedorController::class, 'store']);
+Route::resource('proveedor', ProveedorController::class);
+
 Route::get('/clientes', [ClienteController::class, 'index']);
 Route::get('/registro-clientes', [ClienteController::class, 'create']);
 Route::post('/guardar-clientes', [ClienteController::class, 'store']);
