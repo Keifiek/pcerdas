@@ -33,6 +33,7 @@ Route::get('/productos', [ProductoController::class, 'index']);
 Route::get('/registro-productos', [ProductoController::class, 'create']);
 Route::post('/guardar-productos', [ProductoController::class, 'store']);
 Route::resource('producto', ProductoController::class)->middleware('auth');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -41,4 +42,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+Route::get('/landing', function (){
+    return view('landing');
 });

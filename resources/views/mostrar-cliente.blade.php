@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<x-layaout>
     <h1>Listado de clientes</h1>
 
     <a href="/cliente">Regresar al listado </a>
@@ -33,5 +26,4 @@
         @method('DELETE')
         <input type="submit" value="Eliminar el cliente">
     </form>
-</body>
-</html> 
+</x-layaout>
