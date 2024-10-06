@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<x-layaout>
     <h1>Fomulario de registro de Proveedores</h1>
     <a href="/proveedor">Regresar al listado </a>
     @if (isset($proveedor))
@@ -25,5 +18,4 @@
         <label for="">Direccion:<br><input type="text" name="direccion" value="{{ isset($proveedor) ? $proveedor->direccion : old('direccion') }}"></input></label><br>
         <input type="submit" value="Enviar">
     </form>
-</body>
-</html>
+</x-layaout>
