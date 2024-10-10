@@ -24,10 +24,8 @@ Route::get('/registro-proveedors', [ProveedorController::class, 'create']);
 Route::post('/guardar-proveedors', [ProveedorController::class, 'store']);
 Route::resource('proveedor', ProveedorController::class)->middleware('auth');;
 
-Route::get('/clientes', [ClienteController::class, 'index']);
-Route::get('/registro-clientes', [ClienteController::class, 'create']);
 Route::post('/guardar-clientes', [ClienteController::class, 'store']);
-Route::resource('cliente', ClienteController::class)->middleware('auth');;
+Route::resource('cliente', ClienteController::class);
 
 Route::get('/productos', [ProductoController::class, 'index']);
 Route::get('/registro-productos', [ProductoController::class, 'create']);

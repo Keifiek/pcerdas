@@ -6,7 +6,7 @@
         <form action="{{route('cliente.update', $cliente) }}" method="POST">
             @method('PATCH')
     @else
-        <form action="/guardar-clientes" method="POST">
+        <form action="{{route('cliente.store') }}" method="POST">
     @endif
         @csrf
         <label>Nombre:<br><input type="text" name="nombre" value="{{ isset($cliente) ? $cliente->nombre : old('nombre') }}"></label><br>
