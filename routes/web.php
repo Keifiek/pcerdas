@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProveedorController;
+
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProductoController;
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +19,28 @@ use App\Http\Controllers\ProductoController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/provedors', [ProveedorController::class, 'index']);
+Route::get('/registro-proveedors', [ProveedorController::class, 'create']);
+Route::post('/guardar-proveedors', [ProveedorController::class, 'store']);
+Route::resource('proveedor', ProveedorController::class)->middleware('auth');;
+
+Route::post('/guardar-clientes', [ClienteController::class, 'store']);
+Route::resource('cliente', ClienteController::class);
+
 Route::get('/productos', [ProductoController::class, 'index']);
 Route::get('/registro-productos', [ProductoController::class, 'create']);
 Route::post('/guardar-productos', [ProductoController::class, 'store']);
-Route::resource('producto', ProductoController::class);
+Route::resource('producto', ProductoController::class)->middleware('auth');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+Route::get('/landing', function (){
+    return view('landing');
+});
