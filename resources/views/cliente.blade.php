@@ -10,12 +10,12 @@
     @endif
         @csrf
         <label>Nombre:<br><input type="text" name="nombre" value="{{ isset($cliente) ? $cliente->nombre : old('nombre') }}"></label><br>
-        <label for="">Correo:<br><input id="correo"type="email" name="correo" value ="{{ isset($cliente) ? $cliente->correo : old('correo') }}" class="@error('correo') is-invalid @enderror"></label><br>
-        @error('correo')
+        <label for="">Correo:<br><input id="email"type="email" name="email" value ="{{ isset($cliente) ? $cliente->email : old('email') }}" class="@error('email') is-invalid @enderror"></label><br>
+        @error('email')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <br>
-        <label for="">Contraseña:<br><input type="password" name="contraseña" value="{{ isset($cliente) ? $cliente->contraseña : old('contraseña') }}"></input></label><br>
+        <label for="">Contraseña:<br><input type="password" name="password" value="{{ isset($cliente) ? $cliente->password : old('password') }}"></input></label><br>
         <input type="submit" value="Enviar">
 
     </form>

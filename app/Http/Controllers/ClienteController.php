@@ -34,13 +34,13 @@ class ClienteController extends Controller
     public function store(Request $request){
         $request->validate([
             'nombre' => 'required|min:3|max:255',
-            'correo' => 'required|email',
-            'contraseña' => ['required'],
+            'email' => 'required|email',
+            'password' => ['required'],
         ]);
         $cliente = new Cliente();
         $cliente -> nombre = $request -> nombre;
-        $cliente -> correo = $request -> correo;
-        $cliente -> contraseña = $request -> contraseña;
+        $cliente -> email = $request -> email;
+        $cliente -> password = $request -> password;
         $cliente ->save();
         return redirect('/cliente');             
     }
@@ -67,8 +67,8 @@ class ClienteController extends Controller
     public function update(Request $request, Cliente $cliente)
     {
         $cliente -> nombre = $request -> nombre;
-        $cliente -> correo = $request -> correo;
-        $cliente -> contraseña = $request -> contraseña;
+        $cliente -> email = $request -> email;
+        $cliente -> password = $request -> password;
         $cliente ->save();
         return redirect ('/cliente');
     }

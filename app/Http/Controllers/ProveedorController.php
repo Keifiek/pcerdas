@@ -30,11 +30,13 @@ class ProveedorController extends Controller
             'nombre' => 'required|min:3|max:255',
             'telefono' => 'required|max:15',
             'direccion' => ['required'],
+            'password' => ['required'],
         ]);
         $proveedor = new Proveedor();
         $proveedor -> nombre = $request -> nombre;
         $proveedor -> telefono = $request -> telefono;
         $proveedor -> direccion = $request -> direccion;
+        $proveedor -> password = $request -> password;
         $proveedor ->save();
         return redirect('/proveedor');             
     }

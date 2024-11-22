@@ -9,6 +9,8 @@
                 <th>Nombre</th>
                 <th>Telefono</th>
                 <th>Direccion</th>
+                <th>Contraseña</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         
@@ -17,6 +19,7 @@
                 <td>{{$proveedor->nombre}}</td>
                 <td>{{$proveedor->telefono}}</td>
                 <td>{{$proveedor->direccion}}</td>
+                <td>{{$proveedor->password}}</td>
                 <td><a href="{{ route('proveedor.edit', $proveedor) }}">Editar</a></td>
             </tr>
         </tbody>

@@ -16,6 +16,8 @@
         @enderror
         <br>
         <label for="">Direccion:<br><input type="text" name="direccion" value="{{ isset($proveedor) ? $proveedor->direccion : old('direccion') }}"></input></label><br>
+        <br>
+        <label for="">Contraseña:<br><input type="password" name="password" value="{{ isset($proveedor) ? $proveedor->password : old('password') }}"></input></label><br>
         <input type="submit" value="Enviar">
     </form>
 </x-layaout>

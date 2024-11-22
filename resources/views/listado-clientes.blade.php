@@ -17,8 +17,8 @@
             @foreach($clientes as $cliente)
             <tr>
                 <td>{{$cliente->nombre}}</td>
-                <td>{{$cliente->correo}}</td>
-                <td>{{$cliente->contraseña}}</td>
+                <td>{{$cliente->email}}</td>
+                <td>{{$cliente->password}}</td>
                 <td><a href="{{ route('cliente.show', $cliente) }}">Mostrar detalles</a></td>
                 <td><a href="{{ route('cliente.edit', $cliente) }}">Editar</a></td>
             </tr>
