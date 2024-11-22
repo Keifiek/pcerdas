@@ -24,13 +24,12 @@ Route::get('/registro-proveedors', [ProveedorController::class, 'create']);
 Route::post('/guardar-proveedors', [ProveedorController::class, 'store']);
 Route::resource('proveedor', ProveedorController::class)->middleware('auth');;
 
-Route::post('/guardar-clientes', [ClienteController::class, 'store']);
-Route::resource('cliente', ClienteController::class);
+Route::resource('cliente', ClienteController::class)->middleware('auth');
 
 Route::get('/productos', [ProductoController::class, 'index']);
 Route::get('/registro-productos', [ProductoController::class, 'create']);
 Route::post('/guardar-productos', [ProductoController::class, 'store']);
-Route::resource('producto', ProductoController::class)->middleware('auth');
+Route::resource('producto', ProductoController::class);
 
 Route::middleware([
     'auth:sanctum',
