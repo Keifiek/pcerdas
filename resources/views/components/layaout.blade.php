@@ -158,6 +158,12 @@
                   <span class="d-sm-inline d-none">INGRESAR</span>
                 </a>
               </li>
+              <li class="nav-item d-flex align-items-center">
+                <a href="/register" class="nav-link text-gray font-weight-bold px-4">
+                  <i class="fa fa-user me-sm-1"></i>
+                  <span class="d-sm-inline d-none">REGISTRARSE</span>
+                </a>
+              </li>
             @endguest
             @auth
               <li class="nav-item d-flex align-items-center">

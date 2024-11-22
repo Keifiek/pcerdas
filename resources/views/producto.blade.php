@@ -6,7 +6,7 @@
         <form action="{{route('producto.update', $producto) }}" method="POST">
             @method('PATCH')
     @else
-        <form action="/guardar-productos" method="POST">
+        <form action="{{route('producto.store') }}" method="POST">
     @endif
         @csrf
 

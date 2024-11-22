@@ -6,7 +6,7 @@
         <form action="{{route('proveedor.update', $proveedor) }}" method="POST">
             @method('PATCH')
     @else
-        <form action="/guardar-proveedors" method="POST">
+        <form action="{{route('proveedor.store') }}" method="POST">
     @endif
         @csrf
         <label>Nombre:<br><input type="text" name="nombre" value="{{ isset($proveedor) ? $proveedor->nombre : old('nombre') }}"></label><br>
