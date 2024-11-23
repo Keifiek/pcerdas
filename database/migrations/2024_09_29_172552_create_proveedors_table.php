@@ -14,10 +14,8 @@ return new class extends Migration
     {
         Schema::create('proveedors', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('telefono');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('direccion');
-            $table->string('password');
             $table->timestamps();
         });
     }

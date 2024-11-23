@@ -16,9 +16,9 @@
         <tbody>
             @foreach($clientes as $cliente)
             <tr>
-                <td>{{$cliente->nombre}}</td>
-                <td>{{$cliente->email}}</td>
-                <td>{{$cliente->password}}</td>
+                <td>{{$cliente->user->name}}</td>
+                <td>{{$cliente->user->email}}</td>
+                <td>{{$cliente->user->password}}</td>
                 <td><a href="{{ route('cliente.show', $cliente) }}">Mostrar detalles</a></td>
                 <td><a href="{{ route('cliente.edit', $cliente) }}">Editar</a></td>
             </tr>

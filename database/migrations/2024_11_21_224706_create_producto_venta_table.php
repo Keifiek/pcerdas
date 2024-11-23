@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('venta_id')->constrained();
             $table->foreignId('producto_id')->constrained();
             $table->integer('cantidad');
-            $table->float('total');
             $table->timestamps();
         });
     }

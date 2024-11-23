@@ -9,10 +9,14 @@ class Venta extends Model
 {
     use HasFactory;
     //
+    protected $fillable = [
+        'cliente_id',
+        'total',
+    ];
     public function cliente(){
         return $this->belongsTo(Cliente::class);
     }
     public function productos(){
-        return $this->belongsToMany(Producto::class);
+        return $this->hasMany(VentaProducto::class, 'venta_id');
     }
 }

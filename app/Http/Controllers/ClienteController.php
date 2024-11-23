@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class ClienteController extends Controller 
 {
@@ -16,7 +16,8 @@ class ClienteController extends Controller
 
     public function index()
     {
-        $clientes = Cliente::all();
+        
+        $clientes = Cliente::with('user')->get();
         return view ('listado-clientes', compact('clientes'));
     }
 
@@ -31,19 +32,28 @@ class ClienteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request){
-        $request->validate([
-            'nombre' => 'required|min:3|max:255',
-            'email' => 'required|email',
-            'password' => ['required'],
-        ]);
-        $cliente = new Cliente();
-        $cliente -> nombre = $request -> nombre;
-        $cliente -> email = $request -> email;
-        $cliente -> password = $request -> password;
-        $cliente ->save();
-        return redirect('/cliente');             
+    public function store(Request $request)
+    {
+        // Obtener el ID del usuario autenticado
+        $userId = Auth::id();
+
+        // Validar que el usuario esté autenticado
+        if (!$userId) {
+            return redirect()->route('login')->with('error', 'Debes iniciar sesión para registrarte como cliente.');
+        }
+
+        // Verificar si el usuario ya está registrado como cliente
+        if (Cliente::where('user_id', $userId)->exists()) {
+            return redirect('/producto')->with('error', 'Ya estás registrado como cliente.');
+        }
+
+        // Crear un nuevo cliente asociado al usuario autenticado
+        Cliente::create(['user_id' => $userId]);
+
+        // Redirigir con un mensaje de éxito
+        return redirect()->route('producto.index')->with('success', 'Ahora estás registrado como cliente.');
     }
+
 
     /**
      * Display the specified resource.
@@ -66,9 +76,9 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        $cliente -> nombre = $request -> nombre;
-        $cliente -> email = $request -> email;
-        $cliente -> password = $request -> password;
+        $cliente -> user -> name = $request -> nombre;
+        $cliente -> user-> email = $request -> email;
+        $cliente -> user-> password = $request -> password;
         $cliente ->save();
         return redirect ('/cliente');
     }

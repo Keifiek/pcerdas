@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Telefono</th>
+                <th>Correo</th>
                 <th>Direccion</th>
                 <th>Contraseña</th>
                 <th>Acciones</th>
@@ -18,10 +18,10 @@
         <tbody>
             @foreach($proveedors as $proveedor)
             <tr>
-                <td>{{$proveedor->nombre}}</td>
-                <td>{{$proveedor->telefono}}</td>
+                <td>{{$proveedor->user->name}}</td>
+                <td>{{$proveedor->user->email}}</td>
                 <td>{{$proveedor->direccion}}</td>
-                <td>{{$proveedor->password}}</td>
+                <td>{{$proveedor->user->password}}</td>
                 <td><a href="{{ route('proveedor.show', $proveedor) }}">Mostrar detalles</a></td>
                 <td><a href="{{ route('proveedor.edit', $proveedor) }}">Editar</a></td>
             </tr>

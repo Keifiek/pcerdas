@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProveedorController extends Controller
 {
@@ -25,20 +26,34 @@ class ProveedorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
-            'nombre' => 'required|min:3|max:255',
-            'telefono' => 'required|max:15',
-            'direccion' => ['required'],
-            'password' => ['required'],
+            'direccion' => 'required|string|max:255',  // Validar que la dirección esté presente
         ]);
-        $proveedor = new Proveedor();
-        $proveedor -> nombre = $request -> nombre;
-        $proveedor -> telefono = $request -> telefono;
-        $proveedor -> direccion = $request -> direccion;
-        $proveedor -> password = $request -> password;
-        $proveedor ->save();
-        return redirect('/proveedor');             
+        
+        // Obtener el ID del usuario autenticado
+        $userId = Auth::id();
+
+        // Validar que el usuario esté autenticado
+        if (!$userId) {
+            return redirect()->route('/')->with('error', 'Debes iniciar sesión para registrarte como cliente.');
+        }
+
+        // Verificar si el usuario ya está registrado como cliente
+        if (Proveedor::where('user_id', $userId)->exists()) {
+            return redirect('/producto')->with('error', 'Ya estás registrado como Proveedor.');
+        }
+
+        // Crear un nuevo Proveedor asociado al usuario autenticado
+        Proveedor::create([
+            'user_id' => $userId,
+            'direccion' => $request->direccion,
+        
+        ]);
+
+        // Redirigir con un mensaje de éxito
+        return redirect()->route('producto.index')->with('success', 'Ahora estás registrado como proveedor.');
     }
 
     /**

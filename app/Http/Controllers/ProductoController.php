@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductoController extends Controller
-{
+{ 
     /**
      * Display a listing of the resource.
      */
