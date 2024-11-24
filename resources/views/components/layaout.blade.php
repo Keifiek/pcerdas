@@ -67,23 +67,27 @@
           </a>
         </li>
         @auth
-          @if (Auth::user()->id != 1)
-          <li class="nav-item">
-            <a class="nav-link " href="/misCompras">
-              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
-              </div>
-              <span class="nav-link-text ms-1">Mis Compras</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="/misVentas">
-              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
-              </div>
-              <span class="nav-link-text ms-1">Mis Ventas</span>
-            </a>
-          </li>
+          @if (Auth::user()->id != 1 )
+            @if (Auth::check() && Auth::user()->cliente)
+            <li class="nav-item">
+              <a class="nav-link " href="/misCompras">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Mis Compras</span>
+              </a>
+            </li>
+            @endif
+            @if (Auth::check() && Auth::user()->proveedor)
+            <li class="nav-item">
+              <a class="nav-link " href="/misVentas">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Mis Ventas</span>
+              </a>
+            </li>
+            @endif
           @endif
         @endauth
         <li class="nav-item mt-3">
@@ -101,8 +105,12 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/user/profile">Settings</a></li>
           @if (Auth::user()->id != 1)
-            <li><a class="dropdown-item" href="/misCompras">Mis Compras</a></li>
-            <li><a class="dropdown-item" href="/misVentas">Mis Ventas</a></li>
+            @if (Auth::check() && Auth::user()->cliente)
+              <li><a class="dropdown-item" href="/misCompras">Mis Compras</a></li>
+            @endif
+            @if (Auth::check() && Auth::user()->proveedor)
+              <li><a class="dropdown-item" href="/misVentas">Mis Ventas</a></li>
+            @endif
           @endif
           </ul>
           
