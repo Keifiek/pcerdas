@@ -28,10 +28,6 @@ Route::resource('cliente', ClienteController::class)->middleware('auth');
 
 Route::resource('producto', ProductoController::class);
 
-Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store')->middleware('auth');
-
-Route::post('/proveedores', [ProveedorController::class, 'store'])->name('proveedores.store')->middleware('auth');
-
 Route::resource('compra', ProductoController::class);
 
 Route::resource('venta', ProductoController::class);

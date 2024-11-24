@@ -1,4 +1,5 @@
 <x-layaout>
+@can ('viewAny', App\Models\Proveedor::class)
     <h1>Listado de proveedores</h1>
 
     <a href="/proveedor/create">Ingresar un nuevo proveedor </a>
@@ -28,4 +29,7 @@
             @endforeach
         </tbody>
     </table>
+    @else
+    <h2>No puedes acceder a la lista de proveedores si no eres un administrador</h2>
+    @endcan
 </x-layaout>

@@ -1,8 +1,10 @@
 <x-layaout>
 <h1>Listado de productos</h1>
-
-<a href="/producto/create">Ingresar un nuevo producto </a>
-
+@if (Auth::check())
+    @if (Auth::user()->id == 1)
+        <a href="/producto/create">Ingresar un nuevo producto </a>
+    @endif
+@endif
 <table border="1">
     <thead>
         <tr>
@@ -56,32 +58,40 @@
 </table>
 
 <!-- Formulario para operaciones en lote de compra (solo si el usuario es cliente) -->
-@if (Auth::check() && Auth::user()->cliente)
-    <form action="{{ route('ventas.store.bulk') }}" method="POST">
-        @csrf
-        <h3>Comprar productos en lote:</h3>
-        @foreach($productos as $producto)
-            <div>
-                <label for="bulk_cantidad_{{ $producto->id }}">{{ $producto->descripcion }}:</label>
-                <input type="number" id="bulk_cantidad_{{ $producto->id }}" name="productos[{{ $producto->id }}]" max="100" min="0">
-            </div>
-        @endforeach
-        <button type="submit" class="btn btn-success">Comprar productos</button>
-    </form>
-@endif
+<div class="row">
+    <!-- Formulario para operaciones en lote de compra (solo si el usuario es cliente) -->
+    @if (Auth::check() && Auth::user()->cliente)
+        <div class="col-md-6 mb-4"> <!-- 6 columnas de ancho en pantallas medianas o más grandes -->
+            <form action="{{ route('ventas.store.bulk') }}" method="POST">
+                @csrf
+                <h3>Comprar productos en lote:</h3>
+                @foreach($productos as $producto)
+                    <div>
+                        <label for="bulk_cantidad_{{ $producto->id }}">{{ $producto->descripcion }}:</label>
+                        <input type="number" id="bulk_cantidad_{{ $producto->id }}" name="productos[{{ $producto->id }}]" max="100" min="0">
+                    </div>
+                @endforeach
+                <button type="submit" class="btn btn-success">Comprar productos</button>
+            </form>
+        </div>
+    @endif
 
-<!-- Formulario para operaciones en lote de venta (solo si el usuario es proveedor) -->
-@if (Auth::check() && Auth::user()->proveedor)
-    <form action="{{ route('compras.store.bulk') }}" method="POST">
-        @csrf
-        <h3>Vender productos en lote:</h3>
-        @foreach($productos as $producto)
-            <div>
-                <label for="bulk_cantidad_{{ $producto->id }}">{{ $producto->descripcion }}:</label>
-                <input type="number" id="bulk_cantidad_{{ $producto->id }}" name="productos[{{ $producto->id }}]" max="{{ $producto->stock }}" min="0">
-            </div>
-        @endforeach
-        <button type="submit" class="btn btn-danger">Vender productos</button>
-    </form>
-@endif
+    <!-- Formulario para operaciones en lote de venta (solo si el usuario es proveedor) -->
+    @if (Auth::check() && Auth::user()->proveedor)
+        <div class="col-md-6 mb-4"> <!-- 6 columnas de ancho en pantallas medianas o más grandes -->
+            <form action="{{ route('compras.store.bulk') }}" method="POST">
+                @csrf
+                <h3>Vender productos en lote:</h3>
+                @foreach($productos as $producto)
+                    <div>
+                        <label for="bulk_cantidad_{{ $producto->id }}">{{ $producto->descripcion }}:</label>
+                        <input type="number" id="bulk_cantidad_{{ $producto->id }}" name="productos[{{ $producto->id }}]" max="{{ $producto->stock }}" min="0">
+                    </div>
+                @endforeach
+                <button type="submit" class="btn btn-danger">Vender productos</button>
+            </form>
+        </div>
+    @endif
+</div>
+
 </x-layaout>

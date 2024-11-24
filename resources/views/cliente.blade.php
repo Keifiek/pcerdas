@@ -1,4 +1,5 @@
 <x-layaout>
+@can ('viewAny', App\Models\Cliente::class)
     <h1>Fomulario de registro de clientes</h1>
     <a href="/cliente">Regresar al listado </a>
     @if (isset($cliente))
@@ -19,4 +20,7 @@
         <input type="submit" value="Enviar">
 
     </form>
+    @else
+    <h2>No puedes acceder a esta seccion si no eres un administrador</h2>
+    @endcan
 </x-layaout>

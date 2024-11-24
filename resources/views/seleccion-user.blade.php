@@ -48,15 +48,16 @@
   <!-- Navegación -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">PCerdas</a>
+      <a class="navbar-brand" href="/">PCerdas</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+          
+          <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="/producto">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="mailto:ejemplo@dominio.com">Contacto</a>
         </ul>
       </div>
     </div>
@@ -71,7 +72,7 @@
           <!-- Opción Listado de Clientes -->
           <div class="col-lg-4 col-md-4 mb-4">
             <div class="selection-card">
-              <img src="https://via.placeholder.com/300x200" alt="Listado Clientes">
+              <img src="/material/img/cliente-icon.svg" alt="Listado Clientes">
               <h3>Listado Clientes</h3>
               <form action="{{ route('cliente.index') }}" method="GET">
                 @csrf
@@ -83,7 +84,7 @@
           <!-- Opción Listado de Proveedores -->
           <div class="col-lg-4 col-md-4 mb-4">
             <div class="selection-card">
-              <img src="https://via.placeholder.com/300x200" alt="Listado Proveedores">
+              <img src="/material/img/proveedorr-icon.svg" alt="Listado Proveedores">
               <h3>Listado Proveedores</h3>
               <form action="{{ route('proveedor.index') }}" method="GET">
                 @csrf
@@ -95,7 +96,7 @@
           <!-- Opción Listado de Productos -->
           <div class="col-lg-4 col-md-4 mb-4">
             <div class="selection-card">
-              <img src="https://via.placeholder.com/300x200" alt="Listado Productos">
+              <img src="/material/img/productos-icon.svg" alt="Listado Productos">
               <h3>Listado Productos</h3>
               <form action="{{ route('producto.index') }}" method="GET">
                 @csrf
@@ -114,21 +115,21 @@
           <!-- Opción Cliente -->
           <div class="col-lg-6 col-md-6 mb-4">
             <div class="selection-card">
-              <img src="https://via.placeholder.com/300x200" alt="Cliente">
+              <img src="/material/img/cliente-icon.svg" alt="Cliente">
               <h3>Cliente</h3>
-              <form action="{{ route('clientes.store') }}" method="POST">
+              <form action="{{ route('cliente.store') }}" method="POST">
                 @csrf
                 <button type="submit" class="btn btn-primary mt-3">Seleccionar</button>
               </form>
             </div>
           </div>
-
+          
           <!-- Opción Proveedor -->
           <div class="col-lg-6 col-md-6 mb-4">
             <div class="selection-card">
-              <img src="https://via.placeholder.com/300x200" alt="Proveedor">
+              <img src="/material/img/proveedorr-icon.svg" alt="Proveedor">
               <h3>Proveedor</h3>
-              <form action="{{ route('proveedores.store') }}" method="POST">
+              <form action="{{ route('proveedor.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
                   <label for="direccion">Dirección</label>

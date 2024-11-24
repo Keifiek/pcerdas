@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <g transform="translate(100, 100)">
+    <!-- Sombra de la persona -->
+    <ellipse cx="0" cy="75" rx="40" ry="5" fill="#CBD5E1" opacity="0.3"/>
+    
+    <!-- Cuerpo completo -->
+    <path d="M-20,20 Q-20,70 0,75 Q20,70 20,20 L15,-10 L-15,-10" fill="#4F46E5"/>
+    
+    <!-- Camisa -->
+    <path d="M-15,-10 L-12,-5 L-16,20 L-8,30 L0,25 L8,30 L16,20 L12,-5 L15,-10" fill="#ffffff"/>
+    <path d="M-2,25 L0,40 L2,25" fill="none" stroke="#6366F1" stroke-width="2"/> <!-- Corbata -->
+    <path d="M-12,-5 Q-8,-8 0,-8 Q8,-8 12,-5" fill="none" stroke="#E2E8F0" stroke-width="1"/>
+    
+    <!-- Cuello -->
+    <path d="M-5,-10 Q0,-15 5,-10" fill="#FFD8BE"/>
+    
+    <!-- Cabeza más detallada -->
+    <g>
+      <!-- Forma base de la cabeza -->
+      <path d="M-12,-15 Q-12,-35 0,-35 Q12,-35 12,-15 Q12,-10 0,-8 Q-12,-10 -12,-15" fill="#FFD8BE"/>
+      
+      <!-- Cabello -->
+      <path d="M-12,-25 Q-12,-40 0,-40 Q12,-40 12,-25 Q12,-35 0,-35 Q-12,-35 -12,-25" fill="#4B5563"/>
+      <path d="M-12,-25 Q-8,-23 -4,-25 Q0,-27 4,-25 Q8,-23 12,-25" fill="#4B5563"/>
+      
+      <!-- Ojos -->
+      <ellipse cx="-5" cy="-22" rx="2" ry="1.5" fill="#1F2937"/>
+      <ellipse cx="5" cy="-22" rx="2" ry="1.5" fill="#1F2937"/>
+      <path d="M-6,-24 Q-5,-25 -4,-24" fill="none" stroke="#1F2937" stroke-width="0.5"/> <!-- Ceja -->
+      <path d="M4,-24 Q5,-25 6,-24" fill="none" stroke="#1F2937" stroke-width="0.5"/> <!-- Ceja -->
+      
+      <!-- Nariz y boca -->
+      <path d="M0,-20 L1,-17" fill="none" stroke="#E5B299" stroke-width="0.5"/>
+      <path d="M-3,-15 Q0,-13 3,-15" fill="none" stroke="#E5B299" stroke-width="0.5"/>
+    </g>
+    
+    <!-- Brazo izquierdo con bolsa -->
+    <g>
+      <!-- Brazo -->
+      <path d="M-20,20 Q-25,25 -30,40" fill="none" stroke="#4F46E5" stroke-width="8"/>
+      
+      <!-- Bolsa de compras detallada -->
+      <g transform="translate(-40, 35)">
+        <!-- Cuerpo de la bolsa -->
+        <path d="M-10,0 L10,0 L12,25 L-12,25 Z" fill="#EAB308"/>
+        <!-- Detalles de la bolsa -->
+        <path d="M-8,5 L8,5 M-7,10 L7,10 M-6,15 L6,15" stroke="#FEF3C7" stroke-width="0.5"/>
+        <!-- Asas -->
+        <path d="M-7,0 Q-7,-8 0,-8 Q7,-8 7,0" fill="none" stroke="#EAB308" stroke-width="2"/>
+        <!-- Logotipo -->
+        <circle cx="0" cy="20" r="2" fill="#FEF3C7"/>
+      </g>
+    </g>
+
+    <!-- Texto "Cliente" con estilo -->
+    <text x="0" y="95" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">
+      <tspan fill="#4F46E5">Cliente</tspan>
+    </text>
+  </g>
+</svg>

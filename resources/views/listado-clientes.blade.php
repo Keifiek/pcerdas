@@ -1,4 +1,6 @@
 <x-layaout>
+    @can ('viewAny', App\Models\Cliente::class)
+    
     <h1>Listado de clientes</h1>
 
     <a href="/cliente/create">Ingresar un nuevo cliente </a>
@@ -25,4 +27,7 @@
             @endforeach
         </tbody>
     </table>
+    @else
+    <h2>No puedes acceder a la lista de clientes si no eres un administrador</h2>
+    @endcan
 </x-layaout>

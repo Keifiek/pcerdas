@@ -1,4 +1,5 @@
 <x-layaout>
+@can ('viewAny', App\Models\Proveedor::class)
     <h1>Listado de proveedores</h1>
 
     <a href="/proveedor">Regresar al listado </a>
@@ -29,4 +30,7 @@
         @method('DELETE')
         <input type="submit" value="Eliminar el proveedor">
     </form>
+    @else
+    <h2>No puedes acceder a esta seccion si no eres un administrador</h2>
+    @endcan
 </x-layaout>

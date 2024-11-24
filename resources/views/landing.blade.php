@@ -53,15 +53,16 @@
   <!-- Navegación -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">PCerdas</a>
+      <a class="navbar-brand" href="/">PCerdas</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="/producto">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="mailto:ejemplo@dominio.com">Contacto</a>
+
         </ul>
       </div>
     </div>
@@ -97,7 +98,7 @@
         </div>
         
         <div class="col-lg-6 text-center">
-          <img src="https://via.placeholder.com/600x400" alt="Ilustración de tecnología" class="img-fluid">
+          <img src="/material/img/pcerdas-pagina-inicio.png" alt="Ilustración de tecnología" class="img-fluid">
         </div>
       </div>
     </div>
