@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CompraController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         // Obtener el proveedor relacionado con el usuario autenticado
@@ -34,17 +31,11 @@ class CompraController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -111,33 +102,22 @@ class CompraController extends Controller
 
         return back()->with('success', 'Operación en lote realizada exitosamente. Inventario actualizado.');
     }
-    /**
-     * Display the specified resource.
-     */
+
     public function show(Compra $compra)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Compra $compra)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Compra $compra)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Compra $compra)
     {
         //
