@@ -1,4 +1,5 @@
 <x-layaout>
+@can ('viewAny', App\Models\Cliente::class)
     <h1>Listado de clientes</h1>
 
     <a href="/cliente">Regresar al listado </a>
@@ -14,9 +15,9 @@
         </thead>
         <tbody>            
             <tr>
-                <td>{{$cliente->nombre}}</td>
-                <td>{{$cliente->correo}}</td>
-                <td>{{$cliente->contraseña}}</td>
+                <td>{{$cliente->user->name}}</td>
+                <td>{{$cliente->user->email}}</td>
+                <td>{{$cliente->user->password}}</td>
                 <td><a href="{{ route('cliente.edit', $cliente) }}">Editar</a></td>
             </tr>
         </tbody>
@@ -26,4 +27,7 @@
         @method('DELETE')
         <input type="submit" value="Eliminar el cliente">
     </form>
+    @else
+    <h2>No puedes acceder a esta seccion si no eres un administrador</h2>
+    @endcan
 </x-layaout>

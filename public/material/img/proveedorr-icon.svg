@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <g transform="translate(100, 100)">
+    <!-- Sombra del edificio -->
+    <ellipse cx="0" cy="75" rx="60" ry="5" fill="#CBD5E1" opacity="0.3"/>
+    
+    <!-- Edificio principal -->
+    <g>
+      <!-- Estructura base -->
+      <path d="M-50,70 L-50,-10 L50,-10 L50,70" fill="#4F46E5"/>
+      
+      <!-- Textura de ladrillos -->
+      <g stroke="#6366F1" stroke-width="0.5">
+        <path d="M-45,0 L45,0 M-45,10 L45,10 M-45,20 L45,20 M-45,30 L45,30 M-45,40 L45,40 M-45,50 L45,50 M-45,60 L45,60"/>
+        <path d="M-40,-10 L-40,70 M-30,-10 L-30,70 M-20,-10 L-20,70 M-10,-10 L-10,70 M0,-10 L0,70 M10,-10 L10,70 M20,-10 L20,70 M30,-10 L30,70 M40,-10 L40,70"/>
+      </g>
+
+      <!-- Techo detallado -->
+      <path d="M-55,-10 L0,-40 L55,-10" fill="#6366F1"/>
+      <path d="M-45,-15 L0,-40 L45,-15" fill="#818CF8"/>
+      
+      <!-- Ventanas detalladas -->
+      <g>
+        <!-- Fila 1 -->
+        <g transform="translate(-35, 10)">
+          <rect width="12" height="15" fill="#E0E7FF"/>
+          <path d="M6,0 L6,15 M0,7.5 L12,7.5" stroke="#6366F1" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(-15, 10)">
+          <rect width="12" height="15" fill="#E0E7FF"/>
+          <path d="M6,0 L6,15 M0,7.5 L12,7.5" stroke="#6366F1" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(5, 10)">
+          <rect width="12" height="15" fill="#E0E7FF"/>
+          <path d="M6,0 L6,15 M0,7.5 L12,7.5" stroke="#6366F1" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(25, 10)">
+          <rect width="12" height="15" fill="#E0E7FF"/>
+          <path d="M6,0 L6,15 M0,7.5 L12,7.5" stroke="#6366F1" stroke-width="0.5"/>
+        </g>
+        
+        <!-- Fila 2 -->
+        <g transform="translate(-35, 35)">
+          <rect width="12" height="15" fill="#E0E7FF"/>
+          <path d="M6,0 L6,15 M0,7.5 L12,7.5" stroke="#6366F1" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(-15, 35)">
+          <rect width="12" height="15" fill="#E0E7FF"/>
+          <path d="M6,0 L6,15 M0,7.5 L12,7.5" stroke="#6366F1" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(5, 35)">
+          <rect width="12" height="15" fill="#E0E7FF"/>
+          <path d="M6,0 L6,15 M0,7.5 L12,7.5" stroke="#6366F1" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(25, 35)">
+          <rect width="12" height="15" fill="#E0E7FF"/>
+          <path d="M6,0 L6,15 M0,7.5 L12,7.5" stroke="#6366F1" stroke-width="0.5"/>
+        </g>
+      </g>
+
+      <!-- Puerta principal -->
+      <g transform="translate(-10, 45)">
+        <path d="M0,0 L20,0 L20,25 L0,25 Z" fill="#1D4ED8"/>
+        <path d="M2,2 L18,2 L18,23 L2,23 Z" fill="#60A5FA"/>
+        <circle cx="15" cy="12" r="1.5" fill="#FCD34D"/> <!-- Manija -->
+      </g>
+
+      <!-- Chimeneas -->
+      <g>
+        <!-- Chimenea 1 -->
+        <path d="M-30,-25 L-20,-25 L-20,-10 L-30,-10 Z" fill="#6366F1"/>
+        <path d="M-28,-30 Q-25,-35 -22,-30 Q-19,-35 -16,-30" fill="none" stroke="#E0E7FF" stroke-width="2"/>
+        
+        <!-- Chimenea 2 -->
+        <path d="M10,-20 L20,-20 L20,-10 L10,-10 Z" fill="#6366F1"/>
+        <path d="M12,-25 Q15,-30 18,-25 Q21,-30 24,-25" fill="none" stroke="#E0E7FF" stroke-width="2"/>
+      </g>
+    </g>
+
+    <!-- Texto "Proveedor" con estilo -->
+    <text x="0" y="95" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">
+      <tspan fill="#4F46E5">Proveedor</tspan>
+    </text>
+  </g>
+</svg>
