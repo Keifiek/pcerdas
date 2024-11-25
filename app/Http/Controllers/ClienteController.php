@@ -66,3 +66,4 @@ class ClienteController extends Controller
         return redirect ('/cliente');
     }
 }
+
