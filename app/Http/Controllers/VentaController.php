@@ -6,6 +6,9 @@ use App\Models\Venta;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\VentaRealizada;
 
 class VentaController extends Controller
 {
@@ -63,6 +66,10 @@ class VentaController extends Controller
 
         // Reducir el stock del producto
         $producto->decrement('stock', $request->cantidad);
+
+        $usuario = Auth::user()->email;
+        Mail::to($usuario)->send(new VentaRealizada($venta));
+        
 
         return back()->with('success', 'Venta realizada exitosamente. Inventario actualizado.');
     }

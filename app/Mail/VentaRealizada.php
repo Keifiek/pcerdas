@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Models\Compra;
+use App\Models\Venta;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -10,14 +10,14 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class CompraRealizada extends Mailable
+class VentaRealizada extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(public Compra $compra)
+    public function __construct(public Venta $venta)
     {
         //
     }
@@ -28,7 +28,7 @@ class CompraRealizada extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Venta Realizada con exito',
+            subject: 'Compra Realizada con exito',
         );
     }
 
@@ -38,7 +38,7 @@ class CompraRealizada extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.compra-realizada',
+            markdown: 'emails.venta-realizada',
         );
     }
 

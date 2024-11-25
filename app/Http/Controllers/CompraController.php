@@ -6,6 +6,9 @@ use App\Models\Compra;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CompraRealizada;
 
 
 class CompraController extends Controller
@@ -26,6 +29,8 @@ class CompraController extends Controller
             return redirect()->route('producto.index')->with('error', 'No tienes un proveedor asociado.');
         }
 
+
+        
         // Pasar las compras a la vista
         return view('listado-mis-ventas', compact('compras'));
 
@@ -56,6 +61,9 @@ class CompraController extends Controller
             'producto_id' => $producto->id,
             'cantidad' => $request->cantidad,
         ]);
+
+        $usuario = Auth::user()->email;
+        Mail::to($usuario)->send(new CompraRealizada($compra));
 
         // Incrementar el stock del producto
         $producto->increment('stock', $request->cantidad);
